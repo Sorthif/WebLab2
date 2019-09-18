@@ -5,15 +5,19 @@
 <!DOCTYPE html>
 
 <html>
-
     <body>
-        
-        <form action="/url">
-            Title: <input type="text" name="news-title">
-            Write your article: <input type="text" name="news-article">
-            Upload a foto or video: <button type="button">Upload</button>
-            Submit when you are done.<input type="submit">
+        <link rel="stylesheet" type="text/css" href="../../css/admin.css">
+        <form method="post" enctype="multipart/form-data" action="/fileupload">
+            <textarea rows="10" cols="50" name="title" form="usrform">Enter title here.</textarea>
+            <textarea rows="10" cols="100" name="article" form="usrform">Enter article text here.</textarea>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <p>Upload one or more files using this form:</p>
+                    <input type="file" name="files" multiple />
+                    <input type="submit" value="Upload" />
+                </div>
+            </div>
+
         </form>
     </body>
-
 </html>
