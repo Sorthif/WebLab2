@@ -41,15 +41,14 @@
 
 @media (max-width: 1200px) {
     .main-content > .article
+    {
+        width: 50%;
+    }
 
-{
-    width: 50%;
-}
-
-.grid-container-main {
-    grid-template-columns: 5% auto auto auto auto 5%;
-    grid-template-areas: 'l m m m m r' 'l h h h h r' 'l f f f f r';
-}
+    .grid-container-main {
+        grid-template-columns: 5% auto auto auto auto 5%;
+        grid-template-areas: 'l h h h h r' 'l f f f f r' 'l m m m m r';
+    }
 
 }
 
