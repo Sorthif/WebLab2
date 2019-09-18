@@ -1,13 +1,13 @@
 
 
-.grid-container {
+.grid-container-main {
     display: grid;
     grid-template-areas: 'l h h h h r' 'l m m m m r' 'l f f f f r';
     background-color: black;
     grid-template-columns: 10% auto auto auto auto 10%;
 }
 
-.grid-container > div {
+.grid-container-main > div {
     text-align: center;
     font-size: 30px;
 }
@@ -46,7 +46,7 @@
     width: 50%;
 }
 
-.grid-container {
+.grid-container-main {
     grid-template-columns: 5% auto auto auto auto 5%;
     grid-template-areas: 'l m m m m r' 'l h h h h r' 'l f f f f r';
 }
@@ -58,7 +58,7 @@
         width: 100%;
     }
 
-    .grid-container {
+    .grid-container-main {
         grid-template-columns: 1% auto auto auto auto 1%;
     }
 }

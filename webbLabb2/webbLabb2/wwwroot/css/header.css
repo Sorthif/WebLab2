@@ -1,6 +1,6 @@
 * {box-sizing: border-box;}
 
-.grid-container {
+.grid-container-header {
     display: grid;
     grid-template-columns: auto auto;
 }
@@ -76,7 +76,7 @@
 }
 
 @media (max-width: 1200px) {
-    .grid-container {
+    .grid-container-header {
         grid-template-columns: auto;
     }
 
@@ -88,9 +88,9 @@
         order: 3;
     }
 
-        .search-bar input[type=text] {
-            width: 85%;
-        }
+    .search-bar input[type=text] {
+        width: 85%;
+    }
 }
 
 @media (max-width: 600px) {

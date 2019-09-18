@@ -1,41 +1,48 @@
 ﻿<!DOCTYPE html>
 <html>
 <body>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
     <link rel="stylesheet" type="text/css" href="../../css/header.css">
 
-    <div class="grid-container">
-        <div class="top-nav nav">
-            <a href="#">Missions</a>
-            <a href="#">Galleries</a>
-            <a href="#">NASA TV</a>
-            <a href="#">Follow NASA</a>
-            <a href="#">Downloads</a>
-            <a href="#">About</a>
-            <a href="#">NASA Audiences</a>
-        </div>
+    <div class="grid-container-main">
+        <div class="header">
+            <div class="grid-container-header">
+                <div class="top-nav nav">
+                    <a href="#">Missions</a>
+                    <a href="#">Galleries</a>
+                    <a href="#">NASA TV</a>
+                    <a href="#">Follow NASA</a>
+                    <a href="#">Downloads</a>
+                    <a href="#">About</a>
+                    <a href="#">NASA Audiences</a>
+                </div>
 
-        <div class="search-bar">
-            <form action="">
-                <input type="text" placeholder="Search..." name="search">
-                <button type="submit"><img src="Images/search.png"></button>
-            </form>
-        </div>
+                <div class="search-bar">
+                    <form action="">
+                        <input type="text" placeholder="Search..." name="search">
+                        <button type="submit"><img src="Images/search.png"></button>
+                    </form>
+                </div>
 
-        <div class="bottom-nav nav">
-            <a href="#">Humans in Space</a>
-            <a href="#">Moon to Mars</a>
-            <a href="#">Earth</a>
-            <a href="#">Space Tech</a>
-            <a href="#">Flight</a>
-            <a href="#">Solar System and Beyond</a>
-            <a href="#">STEM Engagement</a>
-            <a href="#">History</a>
-            <a href="#">Benefits to You</a>
+                <div class="bottom-nav nav">
+                    <a href="#">Humans in Space</a>
+                    <a href="#">Moon to Mars</a>
+                    <a href="#">Earth</a>
+                    <a href="#">Space Tech</a>
+                    <a href="#">Flight</a>
+                    <a href="#">Solar System and Beyond</a>
+                    <a href="#">STEM Engagement</a>
+                    <a href="#">History</a>
+                    <a href="#">Benefits to You</a>
+                </div>
+            </div>
         </div>
+        <div class="left-side"></div>
+        <div class="main-content">
+            @RenderBody()
+        </div>
+        <div class="right-side"></div>
+        <div class="footer">Footer</div>
     </div>
-    <div id="content">
-        @RenderBody()
-    </div>
-
 </body>
 </html>
