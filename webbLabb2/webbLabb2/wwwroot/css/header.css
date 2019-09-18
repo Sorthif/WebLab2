@@ -2,7 +2,6 @@
 
 .grid-container-header {
     display: grid;
-    grid-template-columns: auto auto;
 }
 
 .nav {
@@ -11,7 +10,7 @@
 }
 .top-nav {
     background-color: black;
-    grid-template-columns: auto auto auto auto auto auto auto ;
+    grid-template-columns: auto auto auto auto auto auto auto auto ;
     order: 1;
 }
 .bottom-nav {
@@ -47,28 +46,29 @@
 .search-bar {
     float: right;
     order: 2;
+    background-color: black;
 }
 
 .search-bar input[type=text] {
     float: left;
-    margin-left: 7px;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    padding: 6px;
     font-size: 17px;
+    padding: 7px 3px;
+    margin: 5px;
     color: white;
     background-color: gray;
 }
   
 .search-bar button {
     float: left;
+    position: absolute;
     background: transparent;
     border: none;
     cursor: pointer;
 }
 
 .search-bar button img{
-    height: 45px;
+    height: 30px;
+    margin-top: 10px;
 }
   
 .search-bar button:hover {
@@ -89,7 +89,7 @@
     }
 
     .search-bar input[type=text] {
-        width: 85%;
+        width: 75%;
     }
 }
 
