@@ -22,7 +22,11 @@ namespace webbLabb2.Controllers
             return View(await _context.Article.ToListAsync());
         }
 
- 
+        [HttpGet]
+        public IActionResult Admin()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
