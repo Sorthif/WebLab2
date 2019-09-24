@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace webbLabb2.Controllers
 {
@@ -19,6 +20,7 @@ namespace webbLabb2.Controllers
         {
             if (User == Password)
             {
+                HttpContext.Session.SetString("Admin", User);
                 return Redirect("/Admin/Index/");
             }
             else
