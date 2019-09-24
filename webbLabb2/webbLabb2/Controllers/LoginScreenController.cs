@@ -10,16 +10,16 @@ namespace webbLabb2.Controllers
     {
 
         [HttpGet]
-        public IActionResult LoginScreen()
+        public IActionResult Index()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult LoginScreen(string User, string Password)
+        public IActionResult Index(string User, string Password)
         {
             if (User == Password)
             {
-                return Redirect("/Home/Admin");
+                return Redirect("/Admin/Index/");
             }
             else
             {

@@ -9,21 +9,21 @@ namespace webbLabb2.Controllers
     public class AdminController : Controller
     {
         [HttpGet]
-        public IActionResult Admin()
+        public IActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Admin(bool loggedIn)
+        public IActionResult Index(bool loggedIn)
         {
             if (loggedIn == true)
             {
-                return Redirect("/home/Admin/");
+                return Redirect("/Admin/Index/");
             }
             else
             {
-                return Redirect("/home/loginscreen/");
+                return Redirect("/loginscreen/Index/");
             }
         }
     }
