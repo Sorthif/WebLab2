@@ -3,6 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
 
 namespace webbLabb2.Models
 {
@@ -14,23 +16,44 @@ namespace webbLabb2.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<webbLabb2Context>>()))
             {
-                //READ THE ARTICLES FROM FILE AND ADD THEM TO THE "Article class"
-                string json;
-                json = System.IO.File.ReadAllText("wwwroot/json/Ass2News.json");
-                dynamic obj = JsonConvert.DeserializeObject(json);
-                foreach (var news in obj.news)
+                //Clear the database for testing
+                //context.Database.ExecuteSqlCommand("delete * from dbo.Article");
+                //context.SaveChanges();
+
+                //Get all the JSON files in the json folder
+                List<string> fileNames = new List<string>();
+                List<string> tempFileNames = new List<string>();
+                tempFileNames.AddRange(Directory.GetFiles("wwwroot/json/"));
+                foreach(var fn in tempFileNames)
                 {
-                    var a = new Article
+                    if (fn.Contains(".json"))
                     {
-                        ImageUrl = news.imgurl,
-                        MarkupText = news.content,
-                        PublishDate = DateTime.Today,
-                        Title = news.title
-                    };
-                    if (!context.Article.Contains<Article>(a))
-                        context.Add(a);
+                        fileNames.Add(fn);
+                    }
                 }
+
+                //READ THE ARTICLES FROM FILE AND ADD THEM TO THE "Article class"
+                foreach (string fn in fileNames)
+                {
+                    string json;
+                    json = File.ReadAllText(fn);
+                    dynamic obj = JsonConvert.DeserializeObject(json);
+                    foreach (var news in obj.news)
+                    {
+                        var a = new Article
+                        {
+                            ImageUrl = news.imgurl,
+                            MarkupText = news.content,
+                            PublishDate = DateTime.Today,
+                            Title = news.title
+                        };
+                        if (!context.Article.Contains<Article>(a))
+                            context.Add(a);
+                    }
+                }
+                
                 context.SaveChanges();
+                context.Database.BeginTransaction().Commit();
             }
         }
     }
