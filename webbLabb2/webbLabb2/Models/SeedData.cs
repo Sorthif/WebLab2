@@ -14,8 +14,6 @@ namespace webbLabb2.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<webbLabb2Context>>()))
             {
-
-
                 //READ THE ARTICLES FROM FILE AND ADD THEM TO THE "Article class"
                 string json;
                 json = System.IO.File.ReadAllText("wwwroot/json/Ass2News.json");
@@ -29,7 +27,8 @@ namespace webbLabb2.Models
                         PublishDate = DateTime.Today,
                         Title = news.title
                     };
-                    context.Add(a);
+                    if (!context.Article.Contains<Article>(a))
+                        context.Add(a);
                 }
                 context.SaveChanges();
             }

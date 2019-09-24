@@ -9,39 +9,19 @@ using Microsoft.AspNetCore.Hosting;
 
 public class FileUploadController : Controller
 {
-    private readonly IHostingEnvironment _hostingEnvironment;
-    public FileUploadController(IHostingEnvironment hostingEnvironment)
-    {
-        _hostingEnvironment = hostingEnvironment;
-    }
-
     [HttpPost("FileUpload")]
-    public async Task<IActionResult> Index(List<IFormFile> files)
+    public async Task<IActionResult> Index(IFormFile file)
     {
-        long size = files.Sum(f => f.Length);
+        // full path to file in temp location
+        var filePath = "wwwroot/json/";
 
-        var filePaths = new List<string>();
-        foreach (var formFile in files)
+        using (var stream = new FileStream(filePath + file.FileName, FileMode.Create))
         {
-            if (formFile.Length > 0)
-            {
-                string name = formFile.FileName;
-                // full path to file in temp location
-                var filePath = Path.GetTempFileName();
-                filePaths.Add(filePath);
-
-                string projectRootPath = _hostingEnvironment.WebRootPath;
-
-                using (var stream = new FileStream("~images/" + name, FileMode.Create))
-                {
-                    await formFile.CopyToAsync(stream);
-                }
-            }
+            await file.CopyToAsync(stream);
         }
 
-        // process uploaded files
         // Don't rely on or trust the FileName property without validation.
 
-        return Ok(new { count = files.Count, size, filePaths });
+        return Ok(filePath);
     }
 }
