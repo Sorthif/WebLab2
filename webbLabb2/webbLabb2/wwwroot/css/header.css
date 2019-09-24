@@ -20,6 +20,7 @@
 }
 
 .nav a {
+    display: grid;
     float: left;
     text-align: center;
     text-decoration: none;
@@ -85,7 +86,7 @@
     }
 
     .search-bar {
-        order: 3;
+        order: 1;
     }
 
     .search-bar input[type=text] {
@@ -96,6 +97,9 @@
 @media (max-width: 600px) {
     .top-nav {
         grid-template-columns: auto;
+    }
+    .search-bar {
+        grid-row-start: 1;
     }
 
     .bottom-nav {

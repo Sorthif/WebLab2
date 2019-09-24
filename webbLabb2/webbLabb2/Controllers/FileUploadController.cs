@@ -4,9 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+
 
 public class FileUploadController : Controller
 {
+    private readonly IHostingEnvironment _hostingEnvironment;
+    public FileUploadController(IHostingEnvironment hostingEnvironment)
+    {
+        _hostingEnvironment = hostingEnvironment;
+    }
+
     [HttpPost("FileUpload")]
     public async Task<IActionResult> Index(List<IFormFile> files)
     {
@@ -22,9 +30,9 @@ public class FileUploadController : Controller
                 var filePath = Path.GetTempFileName();
                 filePaths.Add(filePath);
 
-                
+                string projectRootPath = _hostingEnvironment.WebRootPath;
 
-                using (var stream = new FileStream(@"C:\Users\Spec_\source\repos\WebLab2\webbLabb2\webbLabb2\" + name, FileMode.Create))
+                using (var stream = new FileStream("~images/" + name, FileMode.Create))
                 {
                     await formFile.CopyToAsync(stream);
                 }

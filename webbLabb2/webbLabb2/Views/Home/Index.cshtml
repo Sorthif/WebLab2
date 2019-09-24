@@ -1,23 +1,22 @@
-﻿@{
+﻿@model IEnumerable<webbLabb2.Models.Article>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-
-
 <div class="banner">Banner</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
-<div class="article">Article</div>
+
+@foreach (var item in Model) {
+<div class="article">
+    <img src=@Html.DisplayFor(modelItem => item.ImageUrl) style="width:100%; height:100%;">
+    <div class="article-textbox">
+        <h4>
+            @Html.DisplayFor(modelItem => item.Title)
+        </h4>
+        <p>
+            @Html.DisplayFor(modelItem => item.MarkupText)
+        </p>
+    </div>
+</div>
+}
+

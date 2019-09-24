@@ -4,15 +4,22 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using webbLabb2.Models;
 
 namespace webbLabb2.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly webbLabb2Context _context;
+
+        public HomeController(webbLabb2Context context)
         {
-            return View();
+            _context = context;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Article.ToListAsync());
         }
 
         public IActionResult Admin()
