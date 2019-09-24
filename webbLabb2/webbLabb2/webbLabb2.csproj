@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Articles1\**" />
+    <Content Remove="Views\Articles1\**" />
+    <EmbeddedResource Remove="Views\Articles1\**" />
+    <None Remove="Views\Articles1\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\css\header.css" />
     <None Include="wwwroot\css\main.css" />
   </ItemGroup>
@@ -14,6 +21,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
   </ItemGroup>
 
 

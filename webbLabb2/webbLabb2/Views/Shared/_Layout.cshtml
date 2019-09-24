@@ -23,7 +23,7 @@
                     </div>
                 </div>
 
-                
+
 
                 <div class="bottom-nav nav">
                     <a href="#">Humans in Space</a>
@@ -38,12 +38,18 @@
                 </div>
             </div>
         </div>
-        <div class="left-side"></div>
+        <div class="left-side">
+            @if(true){
+                <a href="#">Admin Page</a>
+            } else {
+                <a href="#">Log In</a>
+            }
+        </div>
         <div class="main-content">
             @RenderBody()
         </div>
         <div class="right-side"></div>
         <div class="footer">Footer</div>
-    </div>
+        </div>
 </body>
 </html>
