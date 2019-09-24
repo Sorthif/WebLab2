@@ -28,15 +28,6 @@ namespace webbLabb2.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Admin(bool loggedIn)
-        {
-            if (loggedIn == true)
-            {
-                return Redirect();
-            }
-        }
-
         [HttpGet]
         public IActionResult LoginScreen()
         {
