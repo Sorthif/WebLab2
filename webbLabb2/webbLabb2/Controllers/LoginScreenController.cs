@@ -9,22 +9,25 @@ namespace webbLabb2.Controllers
 {
     public class LoginScreenController : Controller
     {
-
         [HttpGet]
         public IActionResult Index()
         {
+            //Checks if a user is logged in with the Admin key.
             var User = HttpContext.Session.GetString("Admin");
-            if (User != null)
+            if (User == null)
             {
-                return Redirect("/Admin/Index/");
+                //If there are no admin users.
+                return View();
             }
-            return View();
+            return Redirect("/Admin/Index/");
         }
+
         [HttpPost]
         public IActionResult Index(string User, string Password)
         {
+            //Database user and password should be checked here.
 
-
+            //If the login is correct, go to admin page, else refresh page.
             if (User == Password)
             {
                 HttpContext.Session.SetString("Admin", User);
@@ -36,6 +39,5 @@ namespace webbLabb2.Controllers
                 return View();
             }
         }
-
     }
 }
