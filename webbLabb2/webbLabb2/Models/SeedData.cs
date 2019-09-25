@@ -18,8 +18,7 @@ namespace webbLabb2.Models
             {
                 //Clear the database for testing
                 //context.Database.ExecuteSqlCommand("delete * from dbo.Article");
-                //context.SaveChanges();
-
+                List<Article> list = context.Article.FromSql<Article>("select * from dbo.Article").ToList();
                 //Get all the JSON files in the json folder
                 List<string> fileNames = new List<string>();
                 List<string> tempFileNames = new List<string>();
@@ -47,13 +46,12 @@ namespace webbLabb2.Models
                             PublishDate = DateTime.Today,
                             Title = news.title
                         };
-                        if (!context.Article.Contains<Article>(a))
-                            context.Add(a);
+                        if (!list.Contains(a))
+                                context.Add(a);
                     }
                 }
                 
                 context.SaveChanges();
-                context.Database.BeginTransaction().Commit();
             }
         }
     }

@@ -16,5 +16,17 @@ namespace webbLabb2.Models
         [DataType(DataType.Date)]
         public DateTime PublishDate { get; set; }
         public string ImageUrl { get; set; }
+
+        public override int GetHashCode()
+        {
+            return Title.GetHashCode();
+        }
+        public override bool Equals(object obj)
+        {
+            return ((Article)obj).GetHashCode() == this.GetHashCode();
+        }
+
     }
+
+
 }
