@@ -18,5 +18,6 @@ namespace webbLabb2.Models
         }
 
         public DbSet<webbLabb2.Models.Article> Article { get; set; }
+
     }
 }
