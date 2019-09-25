@@ -3,23 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace webbLabb2.Controllers
 {
     public class AdminController : Controller
     {
-        [HttpGet]
         public IActionResult Index()
         {
-            return View();
-        }
+            var User = HttpContext.Session.GetString("Admin");
 
-        [HttpPost]
-        public IActionResult Index(bool loggedIn)
-        {
-            if (loggedIn == true)
+            if (User == "a")
             {
-                return Redirect("/Admin/Index/");
+                return View();
             }
             else
             {

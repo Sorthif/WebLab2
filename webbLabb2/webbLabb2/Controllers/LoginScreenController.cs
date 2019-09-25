@@ -13,14 +13,22 @@ namespace webbLabb2.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            var User = HttpContext.Session.GetString("Admin");
+            if (User != null)
+            {
+                return Redirect("/Admin/Index/");
+            }
             return View();
         }
         [HttpPost]
         public IActionResult Index(string User, string Password)
         {
+
+
             if (User == Password)
             {
                 HttpContext.Session.SetString("Admin", User);
+
                 return Redirect("/Admin/Index/");
             }
             else
