@@ -16,7 +16,7 @@
     background-color: white;
 }
 
-.main-content > div {
+.main-content > .article {
     height: 300px;
     float: left;
     border: 2px solid black;
