@@ -13,7 +13,7 @@ namespace webbLabb2.Controllers
         {
             var User = HttpContext.Session.GetString("Admin");
 
-            if (User == "a")
+            if (User != null)
             {
                 return View();
             }

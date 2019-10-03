@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using webbLabb2.Models;
+using webbLabb2.Controllers;
 
 namespace webbLabb2.Controllers
 {
@@ -21,13 +23,11 @@ namespace webbLabb2.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(string User, string Password)
+        public IActionResult Index(string userName, string UserPasswordHash)
         {
-
-
-            if (User == Password)
+            if (false)
             {
-                HttpContext.Session.SetString("Admin", User);
+                HttpContext.Session.SetString("Admin", userName);
 
                 return Redirect("/Admin/Index/");
             }

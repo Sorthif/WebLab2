@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using webbLabb2.Models;
 
 namespace webbLabb2.Migrations
 {
     [DbContext(typeof(webbLabb2Context))]
-    partial class webbLabb2ContextModelSnapshot : ModelSnapshot
+    [Migration("20191003080825_usermig")]
+    partial class usermig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,14 +42,18 @@ namespace webbLabb2.Migrations
 
             modelBuilder.Entity("webbLabb2.Models.User", b =>
                 {
-                    b.Property<string>("UserName")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(12);
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("PasswordUsernameHash")
                         .IsRequired();
 
-                    b.HasKey("UserName");
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(12);
+
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
                 });

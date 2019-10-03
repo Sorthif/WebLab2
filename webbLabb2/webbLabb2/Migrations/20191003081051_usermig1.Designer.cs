@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using webbLabb2.Models;
 
 namespace webbLabb2.Migrations
 {
     [DbContext(typeof(webbLabb2Context))]
-    partial class webbLabb2ContextModelSnapshot : ModelSnapshot
+    [Migration("20191003081051_usermig1")]
+    partial class usermig1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

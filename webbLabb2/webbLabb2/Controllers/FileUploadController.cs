@@ -22,6 +22,6 @@ public class FileUploadController : Controller
 
         // Don't rely on or trust the FileName property without validation.
 
-        return Ok(filePath);
+        return Redirect("/Home");
     }
 }

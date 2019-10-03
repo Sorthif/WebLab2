@@ -16,8 +16,9 @@ namespace webbLabb2.Models
             : base()
         {
         }
-
+        
         public DbSet<webbLabb2.Models.Article> Article { get; set; }
+        public DbSet<webbLabb2.Models.User> Users{ get; set; }
 
     }
 }
