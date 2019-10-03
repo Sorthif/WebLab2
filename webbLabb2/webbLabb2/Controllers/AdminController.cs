@@ -11,6 +11,7 @@ namespace webbLabb2.Controllers
     {
         public IActionResult Index()
         {
+            //Checks if a user has the Admin key.
             var User = HttpContext.Session.GetString("Admin");
 
             if (User != null)
