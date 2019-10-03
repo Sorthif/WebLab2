@@ -3,6 +3,7 @@
 <body>
     <link rel="stylesheet" type="text/css" href="../../css/main.css">
     <link rel="stylesheet" type="text/css" href="../../css/header.css">
+    <link rel="script" type="js" href="../../Search.js" />
 
     <div class="grid-container-main">
         <div class="header">
@@ -19,7 +20,9 @@
                         <form action="">
                             <input type="text" placeholder="Search..." name="search">
                             <button type="submit"><img src="../../images/search.png"></button>
+                            Test: <input type="text"  onkeyup="showHint(this.value, @Context.Request.Host.Value" />
                         </form>
+                        <p>Result: <span id="txtHint"></span></p>
                     </div>
                 </div>
 
