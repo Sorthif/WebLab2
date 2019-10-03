@@ -11,8 +11,10 @@
     <form method="post" enctype="multipart/form-data" asp-controller="FileUpload" asp-action="Index">
         <div class="form-group">
             <div class="col-md-10">
-                <p>Upload one or more files using this form:</p>
-                <input type="file" name="file" />
+                <p>Upload a Json-file containing your articles </p>
+                <input type="file" name="jsonFile" />
+                <p>Upload any images referenced in your Json-file. They will be placed in the /images/ folder:</p>
+                <input type="file" multiple="multiple" name="imageFiles" />
             </div>
         </div>
         <div class="form-group">

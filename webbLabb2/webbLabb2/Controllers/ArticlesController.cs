@@ -13,6 +13,34 @@ namespace webbLabb2.Controllers
     {
         private readonly webbLabb2Context _context;
 
+        [HttpGet]
+        public JsonResult Search(string searchString)
+        {
+            List<Article> tempArticles = _context.Article.ToList<Article>();
+            Dictionary<string, string> result = new Dictionary<string, string>();
+            foreach (var article in tempArticles)
+            {
+                if (article.Title.Contains(searchString))
+                {
+                    var t = article.Title.Split(searchString);
+                    string title = "";
+                    for (int i = 0; i < t.Length - 1; i++)
+                    {
+                        title += t[i] + "<b>" + searchString + "</b>";
+                    }
+                    title += t[t.Length- 1];
+
+                    var tt = t[0] + "<b>" + searchString + "</b>" + t[1];
+
+                    var id = article.Id.ToString();
+                    var link = "/Articles/Details/" + id;
+                    result.Add(tt, link);
+                }
+            }
+            JsonResult jres = new JsonResult(result);
+            return jres;
+        }
+
         public ArticlesController(webbLabb2Context context)
         {
             _context = context;
