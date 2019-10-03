@@ -2,7 +2,7 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-function showHint(str, url) {
+function showHint(str) {
     if (str.length == 0) {
         document.getElementById("txtHint").innerHTML = "";
         return;
@@ -16,7 +16,7 @@ function showHint(str, url) {
         };
 
 
-        xmlhttp.open("GET", url + "/Articles/Search/?searchString=" + str, true);
+        xmlhttp.open("GET", "/Articles/Search/?searchString=" + str, true);
 
         xmlhttp.send();
     }
