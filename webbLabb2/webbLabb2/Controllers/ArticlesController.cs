@@ -18,8 +18,12 @@ namespace webbLabb2.Controllers
         {
             List<Article> tempArticles = _context.Article.ToList<Article>();
             Dictionary<string, string> result = new Dictionary<string, string>();
+            int j = 0;
             foreach (var article in tempArticles)
             {
+                if (j++ == 5)
+                    break;
+
                 if (article.Title.Contains(searchString))
                 {
                     var t = article.Title.Split(searchString);
