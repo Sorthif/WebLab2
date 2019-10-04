@@ -80,6 +80,13 @@
     display:none;
 }
 
+.dropdown-item ul {
+    list-style: none;
+}
+.dropdown-item p {
+    color: black;
+}
+
 .dropdown-item {
     display: block;
     position: absolute;
@@ -89,6 +96,7 @@
     margin-top: 44px;
     margin-left: 5px;
     z-index: 1;
+
 }
 
 @media (max-width: 1200px) {

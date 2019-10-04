@@ -14,7 +14,7 @@ namespace webbLabb2.Controllers
         private readonly webbLabb2Context _context;
 
         [HttpGet]
-        public JsonResult Search(string searchString)
+        public PartialViewResult Search(string searchString)
         {
             List<Article> tempArticles = _context.Article.ToList<Article>();
             Dictionary<string, string> result = new Dictionary<string, string>();
@@ -26,19 +26,17 @@ namespace webbLabb2.Controllers
                     string title = "";
                     for (int i = 0; i < t.Length - 1; i++)
                     {
-                        title += t[i] + "<b>" + searchString + "</b>";
+                        title += t[i] + searchString;
                     }
                     title += t[t.Length- 1];
 
-                    var tt = t[0] + "<b>" + searchString + "</b>" + t[1];
-
                     var id = article.Id.ToString();
                     var link = "/Articles/Details/" + id;
-                    result.Add(tt, link);
+                    result.Add(title, link);
                 }
             }
             JsonResult jres = new JsonResult(result);
-            return jres;
+            return PartialView("SearchResultView", result);
         }
 
         public ArticlesController(webbLabb2Context context)

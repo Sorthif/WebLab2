@@ -17,7 +17,6 @@ function showHint(str) {
 
 
         xmlhttp.open("GET", "/Articles/Search/?searchString=" + str, true);
-
         xmlhttp.send();
     }
 }

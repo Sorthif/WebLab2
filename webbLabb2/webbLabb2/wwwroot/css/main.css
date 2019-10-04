@@ -50,21 +50,21 @@
     background-color: white;
 }
 
-    .article-textbox > p {
-        font-size: 11px;
-        font-family: Arial;
-        color: black;
-        margin-top: 1px;
-    }
+.article-textbox > p {
+    font-size: 11px;
+    font-family: Arial;
+    color: black;
+    margin-top: 1px;
+}
 
-    .article-textbox > h4 {
-        margin-top: 1px;
-        margin-bottom: 1px;
-        font-size: 16px;
-        font-family: Tahoma;
-        color: white;
-        background-color: deepskyblue;
-    }
+.article-textbox > h4 {
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-size: 16px;
+    font-family: Tahoma;
+    color: white;
+    background-color: deepskyblue;
+}
 
 @media (max-width: 1200px) {
     .main-content > .article

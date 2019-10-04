@@ -1,0 +1,10 @@
+﻿@model Dictionary<string, string>
+
+<ul>
+@{ foreach (var item in Model)
+{
+        <li>
+            <a href="@item.Value">@Html.DisplayFor(blabla => item.Key)</a>
+        </li>
+    }}
+</ul>
