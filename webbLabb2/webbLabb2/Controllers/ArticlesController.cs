@@ -21,7 +21,7 @@ namespace webbLabb2.Controllers
             int j = 0;
             foreach (var article in tempArticles)
             {
-                if (j++ == 5)
+                if (j == 5)
                     break;
 
                 if (article.Title.Contains(searchString))
@@ -37,9 +37,9 @@ namespace webbLabb2.Controllers
                     var id = article.Id.ToString();
                     var link = "/Articles/Details/" + id;
                     result.Add(title, link);
+                    j++;
                 }
             }
-            JsonResult jres = new JsonResult(result);
             return PartialView("SearchResultView", result);
         }
 
