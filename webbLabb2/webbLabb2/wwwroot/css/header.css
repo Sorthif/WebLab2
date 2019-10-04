@@ -76,6 +76,21 @@
     background: #ccc;
 }
 
+.dropdown-item:required{
+    display:none;
+}
+
+.dropdown-item {
+    display: block;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    margin-top: 44px;
+    margin-left: 5px;
+    z-index: 1;
+}
+
 @media (max-width: 1200px) {
     .grid-container-header {
         grid-template-columns: auto;
